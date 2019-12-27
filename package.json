@@ -1,0 +1,17 @@
+{
+  "name": "test_twitter",
+  "version": "1.0.0",
+  "description": "Twitterの情報取得",
+  "main": "index.js",
+  "scripts": {
+    "runTask": "node scripts/getTweet.js && node scripts/analysis.js",
+    "analysis": "node scripts/analysis.js",
+    "getTweets": "node scripts/getTweet.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mecab-lite": "0.0.8",
+    "twit": "^2.2.11"
+  }
+}

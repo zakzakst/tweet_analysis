@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ツイート一覧</title>
+  <style>
+    .nav {
+      display: flex;
+    }
+    .nav > a {
+      display: block;
+      padding: 5px 10px;
+    }
+    .tweet-list {
+      list-style: none;
+    }
+    .tweet-list > li {
+      display: flex;
+      padding: 5px 0;
+      border-bottom: 1px dotted #aaa;
+    }
+    .tweet-list > li:last-child {
+      border-bottom: 1px solid #333;
+    }
+    .tweet-list > li > span:first-child {
+      flex-basis: 130px;
+    }
+    .tweet-list > li > span:nth-child(2) {
+      flex-basis: calc(100% - 130px);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <nav class="nav">
+      <a href="index.html">ツイート一覧</a>
+      <a href="word.html?word=text">テキスト分析</a>
+      <a href="word.html?word=hashtag">ハッシュタグ分析</a>
+    </nav>
+    <h1>ツイート一覧</h1>
+    <section v-if="errored">
+      <p>申し訳ありませんが、情報を取得できませんでした。しばらくしてからもう一度お試しください。</p>
+    </section>
+    <section v-else>
+      <div v-if="loading">Loading...</div>
+      <div v-else v-for="tweet in tweets">
+        <ul class="tweet-list">
+          <li><span>日付</span><span>{{ tweet.date || '-----' }}</span></li>
+          <li><span>テキスト</span><span>{{ tweet.text || '-----' }}</span></li>
+          <li><span>ハッシュタグ</span><span>{{ tweet.hashtags.join(' ／ ') || '-----'  }}</span></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

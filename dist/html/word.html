@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ツイート解析</title>
+  <style>
+    .nav {
+      display: flex;
+    }
+    .nav > a {
+      display: block;
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html">ツイート一覧</a>
+    <a href="word.html?word=text">テキスト分析</a>
+    <a href="word.html?word=hashtag">ハッシュタグ分析</a>
+  </nav>
+  <h1>ツイート解析 - <span id="text-type"></span></h1>
+  <div id="cloud"></div>
+  <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/d3.layout.cloud.js"></script>
+  <script id="script" src="js/wordcloud.js" data-word-type="body"></script>
+</body>
+</html>
